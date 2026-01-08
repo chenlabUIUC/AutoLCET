@@ -1,2 +1,3 @@
 # Getting started  
-Run shapeSignatureAnalysis.m in MATLAB. The results will be saved in folder "facetVisualize".
+1. Run shapeSignatureAnalysis.m in MATLAB. Input data example is included in "surfaceData".  
+2. The results will be saved in folder "facetVisualize".
