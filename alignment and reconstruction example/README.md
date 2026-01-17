@@ -1,7 +1,9 @@
 # Description  
-This code is used to extract the useful projections from the mrc movie to construct the tilt serise data ready for 3D reconstruction.  
+This code is used to align the tilt series and do the reconstruction.  
 # Getting started  
-1. Download the "tilt series extraction example" folder.
-2. The input data contains (a). An mrc movie captured by TIA (b). An xml file produced by TIA together with the movie containing the timestamps of the movie. (c). A csv file produced by the fast tomography Python script recording the current tilt angle at different time points. Here an example of (b) and (c) are included in this repo while (a) has to be downloaded at xxxx (_20240612_124708.mrc) due to its very large size. The images in output folder are just place holders to keep the folder structure.  
-3. Run tomoExtract_exp.m in MATLAB. It contains a few code blocks: (a) It is challenging to align the time in xml file (or the movie) and in the csv file containing the tilt angles. To do that one must identify the frame numbers in the movie before first few tilt event. You may open the mrc and replace the frame numbers of your own data on line 8. The current values are for the example data. (b) We sample possible offset times to minimize the time difference between the timestamps of the recorded frame numbers and times when tilt angles changes. (c) For better reconstruction we use the negative natural log of the data and subtract the background. In this step the background intensity is estimated. (d) This block substracts the background and saves negative natural log of each frame at each unique tilt angle. Meanwhile a csv file recording the tilt angle with the same length as the extracted tilt series is made.  
-4. The results will be saved in folder "output". You may drag the folder in "frames" into ImageJ and save it as a tiff stack.  
+1. Download the "alignment and reconstruction example" folder.  
+2. Run "alignment_example.ipynb" for alignment. Please install all imported libiaries.   
+3. The input data contains (a) The coarse aligned tilt series. and (b) A csv file recording the tilt angles. Both file can be produced in the last step (tilt series extraction example). But for completion of the example we provide the file examples here. (a) is already provided here. For (b) please download "_20240612_124708_log_norm.tif" from xxxx. Both files should be in the "input" folder.  
+
+4. Run "recon_SVMBIR_example.ipynb" to do reconstruction. Please install all imported libraries. To the best of my knowledge, the svmbir library does not work well on Windows OS.  
+5. The input data in from the last alignment step which is in "output/align". The results will be saved in "output/reconstruction".    
