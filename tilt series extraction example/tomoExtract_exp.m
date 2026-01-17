@@ -53,7 +53,7 @@ plot(timeCali(:,1),timeCali(:,2))
 scatter(timeCali(logical(timeCali(:,3)),1),timeCali(logical(timeCali(:,3)),2),'red')
 scatter(qp, qp*0,'g')
 xlabel('Time (s)')
-ylabel('Tile angle (°)')
+ylabel('Tile angle (Â°)')
 frameList = knnsearch(timeTable,sampledPoints(:,1));
 %%
 %%%3. Do the segmentation and fit the background intensity
