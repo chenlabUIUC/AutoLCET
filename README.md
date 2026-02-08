@@ -8,6 +8,7 @@ Authors: TBD
 
 The following folders contain examples of data analysis codes used in the paper, corresponding to the subsections of the Supplementary Note in the Supporting Information:
 
+- **2 Error estimation example**: Codes for estimating 3D reconstruction errors when the shape transforms during tilt-series acquisition.
 - **6.1 3D U-Net segmentation example**: Codes to perform 3D U-Net segmentation of two elements in the 3D reconstruction.
 - **6.2 U-Net for contrast correction example**: Codes to use U-Net to correct contrast inversion in STEM projections of thick nanoparticle samples.
 - **6.4 Local etching rate example**: Codes to measure the local etching rate on the surface from a 3D reconstruction series.
@@ -15,7 +16,7 @@ The following folders contain examples of data analysis codes used in the paper,
 - **6.6 Moment invariant example**: Codes to measure moment invariants from 3D reconstructions.
 - **6.7 & 6.8 Cu₃As & chiral Au nanoparticles**: Codes for the analysis of Cu₃As & chiral Au nanoparticles.
 - **6.9 Facet analysis example**: Codes to assign low-index lattice facets to the surface of a 3D reconstruction.
-- **X.X Error estimation example**: Codes for estimating 3D reconstruction errors when the shape transforms during tilt-series acquisition.
+
 
 The folders below contain codes for fast electron tomography:
 
