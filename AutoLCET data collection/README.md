@@ -1,4 +1,4 @@
-# fastTomo
+# AutoLCET
 Fast tomography control on FEI electron microscopy with a GUI. This is the tomography acquisition algorithm used in paper: Autonomous 4D Videotomography of Nanoparticle Reactions.  
 1. Requirements: temscript (https://github.com/niermann/temscript), opencv-python, matplotlib, numpy, mss. The temscript package provides a Python wrapper for the scripting interface of Thermo Fisher Scientific and FEI microscopes. Please refer to https://temscript.readthedocs.io/en/latest/about.html for its installation.  
 2. The first button enables the microscopy control. Then you must successfully connect to a microscope to use the controlling functions. Without microscopy control enabled you may freely explore the functions, which will not actually interact with anything.
