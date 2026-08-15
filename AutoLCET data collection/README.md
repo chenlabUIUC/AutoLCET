@@ -1,8 +1,155 @@
 # AutoLCET
-Fast tomography control on FEI electron microscopy with a GUI. This is the tomography acquisition algorithm used in paper: Autonomous Liquid-Cell Electron Tomography for 4D Nanoparticle Reaction Kinetics.  
-1. Requirements: temscript (https://github.com/niermann/temscript), opencv-python, matplotlib, numpy, mss. The temscript package provides a Python wrapper for the scripting interface of Thermo Fisher Scientific and FEI microscopes. Please refer to https://temscript.readthedocs.io/en/latest/about.html for its installation.  
-2. The first button enables the microscopy control. Then you must successfully connect to a microscope to use the controlling functions. Without microscopy control enabled you may freely explore the functions, which will not actually interact with anything.
-3. Set the camera to continuous recording mode in TIA (or Velox) and let the app look at the display port by adjusting X, Y, and W. The app can schedule the tilt series acquisition but does not capture any projection images or movie. The app also automatically tracks the nanoparticle position and center the particle during the acquisition by performing real-time thresholding. Adjust Blur, Thresh, Margin, AreaLB, and AreaUB to refine the thresholding result. Beside the straightforward Blur (Gaussian blur sigma) and Thresh (intensity threshold), Margin ignores any feature near the image border; AreaLB and AreaUB filter any too small or too large objects.
-4. For other parameters, Microscopy IP and Port are used to connecte to the microscope, which is usually or by default 192.168.0.1 and 8080. The FOV is the field of view at the current magnification, which has to be manually input to calculate the pixel-to-nanometer scale to move the stage. The Multiplier is multiplied to the pixel-to-nanometer scale to consider for inaccurate scale calibration. The app sends commands to move the stage while continuously grabbing and displaying the viewing port of TIA (or Velox). A Delay time is used to make sure the previous stage motion (tilt or translate) command is returned before sending the next command. Usually 2 seconds are sufficient. The Trans threshold skips the centering if the center of the particle is already within its value to the image center.  
-5. After the acquisition the app saves a csv file containing the time stamps and corresponding tilt angles during the acquisition, which is later used to extract the projection images (tilt series) from the movie saved by TIA. Please refer to the folder "tilt series extraction example" for this step.  
-6. Author: lance.yao@pnnl.gov  
+
+Fast tomography control for FEI electron microscopy with real-time particle tracking GUI.
+
+![Version](https://img.shields.io/badge/version-0.0.7-blue)
+![Python](https://img.shields.io/badge/python-3.8+-green)
+
+## Overview
+
+fastTomo enables automated tilt-series acquisition with real-time particle tracking for electron tomography. The application captures the microscope display (via screen capture or capture card) and uses computer vision to track particles, automatically correcting stage position during tilting.
+
+## Features
+
+- **Dual Capture Modes**: Screen capture (MSS) or capture card input
+- **Real-time Particle Tracking**: 
+  - Classical method (thresholding + contour detection)
+  - ML method (YOLO-based object detection)
+- **Automated Stage Control**: Position correction during tilt series
+- **Live Visualization**: Original, blurred, binary, and overlay views
+- **Configurable Parameters**: All settings saved automatically to `configure.json`
+
+## Requirements
+
+### Core Dependencies
+
+numpy  
+opencv-python  
+matplotlib  
+mss  
+
+
+### Optional Dependencies
+
+temscript          # For microscope control (FEI/ThermoFisher)  
+ultralytics        # For YOLO-based ML tracking  
+
+
+### Installation
+
+pip install numpy opencv-python matplotlib mss  
+pip install temscript        # If connecting to microscope  
+pip install ultralytics      # If using ML tracking  
+
+
+## Usage
+
+### Quick Start
+
+1. **Launch the application**:
+
+   python fastTomo.py  
+
+
+2. **Configure capture source**:
+   - **Screenshot (MSS)**: Capture a region of your screen
+   - **Capture Card**: Use an external capture device (e.g., HDMI capture card)
+
+3. **Adjust tracking parameters**:
+   - Use sliders to tune blur, threshold, and area filters
+   - Choose between Classical or ML tracking methods
+
+4. **Connect to microscope** (optional):
+   - Enable "Microscopy Control"
+   - Enter IP address and port
+   - Click "Connect"
+
+5. **Start tilt series**:
+   - Register starting pose
+   - Configure tilt angles and intervals
+   - Click "Tilt Start/Stop"
+
+### Capture Modes
+
+#### Screen Capture (MSS)
+- Set X, Y coordinates and Width/Height to capture a screen region
+- Ideal when microscope software displays on the same computer
+
+#### Capture Card
+- Select device from dropdown and choose resolution
+- Click "Start" to begin capture
+- Use X, Y, W, H sliders to crop the captured region
+- Ideal for external display sources or dedicated capture setups
+
+### Tracking Methods
+
+#### Classical (Default)
+- Gaussian blur → Thresholding → Contour detection
+- Fast and works well with high-contrast particles
+- Adjustable parameters: Blur, Threshold, Invert Contrast
+
+#### ML (YOLO)
+- Requires a trained YOLO model (.pt file)
+- Better for complex scenes or low-contrast particles
+- Runs inference in a separate thread for smooth UI
+- A yolov8_cell.pt is trained and provided to track cells in HAADF-STEM mode.
+
+### Configuration Parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| FOV (nm) | Field of view in nanometers |
+| Tilt angle start/end | Tilt range in degrees |
+| Tilt interval | Step size in degrees |
+| Delay time | Wait time between tilts (seconds) |
+| Trans threshold | Minimum displacement to trigger correction (pixels) |
+| Multiplier | Stage movement scaling factor |
+
+## How It Works
+
+1. **Image Acquisition**: Captures microscope display via screen grab or capture card
+2. **Particle Detection**: Identifies particles using classical CV or ML methods
+3. **Centroid Tracking**: Calculates particle position relative to image center
+4. **Stage Correction**: Sends position corrections to maintain particle centering during tilt
+
+This approach is faster than using camera APIs directly, enabling real-time tracking during tomography acquisition.
+
+## Controls
+
+| Control | Function |
+|---------|----------|
+| Enable Microscopy Control | Activates microscope communication |
+| Connect | Establishes connection to microscope |
+| Track On/Off | Enables/disables position correction |
+| Register Starting Pose | Saves current stage position |
+| Go to Starting Pose | Returns to saved position |
+| Tilt Start/Stop | Begins/ends automated tilt series |
+
+## File Output
+
+- **configure.json**: Automatically saved settings
+- **logs/**: Tilt series logs with timestamps and angles
+
+## Troubleshooting
+
+### Capture Card Issues
+- Try different resolutions from the dropdown
+- Click "Refresh" to rescan for devices
+- Ensure no other application is using the capture device
+
+### Connection Failed
+- Verify microscope IP and port
+- Check network connectivity
+- Ensure temscript server is running on microscope PC
+
+### Tracking Issues
+- Adjust blur and threshold for classical method
+- Ensure particle is within Area LB/UB bounds
+- Try inverting contrast if particle is brighter than background
+
+## Author
+
+**Lance Yao**  
+Pacific Northwest National Laboratory  
+📧 lance.yao@pnnl.gov
+
