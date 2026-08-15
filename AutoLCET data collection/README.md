@@ -7,7 +7,7 @@ Fast tomography control for FEI electron microscopy with real-time particle trac
 
 ## Overview
 
-fastTomo enables automated tilt-series acquisition with real-time particle tracking for electron tomography. The application captures the microscope display (via screen capture or capture card) and uses computer vision to track particles, automatically correcting stage position during tilting.
+AutoLCET enables automated tilt-series acquisition with real-time particle tracking for electron tomography. The application captures the microscope display (via screen capture or capture card) and uses computer vision to track particles, automatically correcting stage position during tilting.
 
 ## Features
 
