@@ -35,13 +35,13 @@ linked for download in that folder's README) so the code can be tested.
 | Folder | Supp. Note | Language | Description |
 |---|---|---|---|
 | **2 error estimation example** | §2 | <MATLAB/Python> | Estimate 3D reconstruction errors when the shape transforms during tilt-series acquisition |
-| **6.1 3D U-Net segmentation example** | §6.1 | Python | 3D U-Net segmentation of two elements in a 3D reconstruction |
-| **6.2 U-Net for contrast correction example** | §6.2 | Python | U-Net correction of contrast inversion in STEM projections of thick nanoparticle samples |
-| **6.4 local etching rate example** | §6.4 | MATLAB | Measure the local etching rate on the surface from a 3D reconstruction series |
-| **6.5 shape signature example** | §6.5 | MATLAB | Measure the shape signature *d(θ, φ)* for directional etching rates from a 3D reconstruction series |
-| **6.6 moment invariant example** | §6.6 | <MATLAB/Python> | Measure moment invariants from 3D reconstructions |
-| **6.7 & 6.8 Cu₃As & chiral Au nanoparticles** | §6.7–6.8 | <MATLAB/Python> | Analysis of Cu₃As and chiral Au nanoparticles |
-| **6.9 facet analysis example** | §6.9 | MATLAB | Assign low-index lattice facets to the surface of a 3D reconstruction |
+| **8.1 3D U-Net segmentation example** | §8.1 | Python | 3D U-Net segmentation of two elements in a 3D reconstruction |
+| **8.2 U-Net for contrast correction example** | §8.2 | Python | U-Net correction of contrast inversion in STEM projections of thick nanoparticle samples |
+| **8.4 local etching rate example** | §8.4 | MATLAB | Measure the local etching rate on the surface from a 3D reconstruction series |
+| **8.5 shape signature example** | §8.5 | MATLAB | Measure the shape signature *d(θ, φ)* for directional etching rates from a 3D reconstruction series |
+| **8.6 moment invariant example** | §8.6 | <MATLAB/Python> | Measure moment invariants from 3D reconstructions |
+| **8.7 & 8.8 Cu₃As & chiral Au nanoparticles** | §8.7–8.8 | <MATLAB/Python> | Analysis of Cu₃As and chiral Au nanoparticles |
+| **8.9 facet analysis example** | §8.9 | MATLAB | Assign low-index lattice facets to the surface of a 3D reconstruction |
 
 ### Fast electron tomography pipeline
 
