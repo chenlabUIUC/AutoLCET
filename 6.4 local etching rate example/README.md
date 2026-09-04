@@ -27,7 +27,7 @@ the local etching rate with the local surface curvature.
 > `stack_reader_RGB`.
 
 ### Operating systems tested
-- <e.g., Windows 11 / macOS 13 / Ubuntu 22.04 — specify what you tested on>
+- Windows 11
 
 ### Hardware
 - No non-standard hardware required. Runs on a normal desktop CPU.
