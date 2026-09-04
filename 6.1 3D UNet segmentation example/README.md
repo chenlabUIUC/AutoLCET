@@ -104,7 +104,7 @@ Open `3D_UNet.ipynb` in Colab or Jupyter and run the cells in order.
 2. Place training volumes in `augmentation/` (or zip as `augmentation.zip`) and test
    volumes in `test/`.
 3. Adjust hyperparameters in the notebook as needed:
-   - `epochs` (default 25 in the cell / 50 as run), `batch_size` (default 1 for
+   - `epochs` (default 25), `batch_size` (default 1 for
      memory reasons), `validation_split` (default 0.1), learning rate (1e-4).
 4. Run the notebook to train, then run the prediction cell to segment your test data.
 5. Predictions are saved to `prediction/`.
