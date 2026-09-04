@@ -4,7 +4,7 @@ Codes for the manuscript **"Autonomous Liquid-Cell Electron Tomography for 4D
 Nanoparticle Reaction Kinetics."**
 
 - **DOI:** [Pending]
-- **License:** See [LICENSE](./LICENSE) (<state license, e.g., MIT / BSD-3-Clause>)
+- **License:** See [LICENSE](./LICENSE) (MIT)
 - **Code functionality / pseudocode:** described in the **Supplementary Note** of the
   Supporting Information; each folder below maps to the indicated subsection.
 
