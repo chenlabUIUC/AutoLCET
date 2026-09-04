@@ -65,4 +65,4 @@ times, please refer to the `README.md` file inside each individual folder.
 
 If you use this code, please cite:
 
-> <citation to be added upon publication>
+Autonomous Liquid-Cell Electron Tomography for 4D Nanoparticle Reaction Kinetics. Zhiheng Lyu, Lehan Yao, Carlos L. Bassan, Xingzhi Wang, Junseo Lee, Shengsong Yang, Binyu Wu, Falon C. Kalutantirige, Sohini Mandal, John R. Crockett, Seoeun Seol, Jiwoong Park, Maria K. Chan, Gregory S. Girolami, Robert F. Klie, A. Paul Alivisatos, Michael Engel, Qian Chen.  
