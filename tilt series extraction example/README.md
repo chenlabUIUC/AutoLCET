@@ -89,7 +89,8 @@ tilt series extraction example/
     └── tiltAnglesSeries_<mrc name>.csv    # per-projection tilt angles (created)
 ```
 - The `.xml`, tilt-angle `.csv`, and `mask.tif` are provided here. The large raw
-  movie `_20240612_124708.mrc` must be downloaded from `<link>` and placed in
+  movie `_20240612_124708.mrc` must be downloaded from 
+  https://databank.illinois.edu/datasets/IDB-6461881 and placed in
   `input/`. (The files already present in `output/` are placeholders that preserve
   the folder structure.)
 

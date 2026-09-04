@@ -26,6 +26,9 @@ output, and run times are documented in the `README.md` inside each folder.**
 A small demo dataset is provided with each module (either included in the folder or
 linked for download in that folder's README) so the code can be tested.
 
+Raw data for the manuscript can be found at Illinois Data Bank: 
+https://databank.illinois.edu/datasets/IDB-6461881
+
 ---
 
 ## Contents
