@@ -18,7 +18,7 @@ The script `shapeSignatureAnalysis.m`:
 ## 1. System requirements
 
 ### Software dependencies (tested versions)
-- MATLAB **R2024a** <confirm — please state the version you tested on>
+- MATLAB **R2024a** 
 - Helper functions bundled in the `utils/` folder (added to the path at the top of
   the script):
   - `readObj.m` — read Wavefront `.obj` mesh files
@@ -28,7 +28,7 @@ The script `shapeSignatureAnalysis.m`:
   `m_pcolor` for the stereographic projections).
 
 ### Operating systems tested
-- <e.g., Windows 11 / macOS 13 / Ubuntu 22.04 — specify what you tested on>
+- Windows 11
 
 ### Hardware
 - No non-standard hardware required. Runs on a normal desktop CPU.
